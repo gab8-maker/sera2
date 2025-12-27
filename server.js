@@ -119,13 +119,12 @@ app.post("/musica", upload.single("arquivo"), (req, res) => {
                 console.log("Nenhum resultado encontrado para esse fingerprint");
             }
 
-
+ res.json(data);
 
         } catch (fetchErr) {
             console.error("Erro ao consultar AcoustID:", fetchErr.message);
         }
-        const j = await res.json()
-        res.send(JSON.stringify(j));
+        
     });
 });
 
@@ -133,4 +132,5 @@ app.listen(3000, () => {
     console.log('Servidor HTTPS rodando em https://localhost:3000');
 
 });
+
 
