@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: sera2
+    env: node
+    buildCommand: |
+      apt-get update
+      apt-get install -y chromaprint
+      npm install
+    startCommand: npm start
