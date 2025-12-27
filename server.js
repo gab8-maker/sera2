@@ -64,7 +64,7 @@ app.post("/musica", upload.single("arquivo"), (req, res) => {
 
     fs.writeFileSync(tempFile, req.file.buffer);
 
-    const fpcalc = spawn("./fpcalc", [tempFile]);
+    const fpcalc = spawn("fpcalc", [tempFile]);
 
     let output = "";
     let error = "";
@@ -131,4 +131,5 @@ app.post("/musica", upload.single("arquivo"), (req, res) => {
 
 app.listen(3000, () => {
     console.log('Servidor HTTPS rodando em https://localhost:3000');
+
 });
