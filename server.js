@@ -15,7 +15,7 @@ const app = express()
 const upload = multer({
     storage: multer.memoryStorage(),
     limits: {
-        fileSize: 5 * 1024 * 1024 // 5MB
+        fileSize: 15 * 1024 * 1024 // 5MB
     }
 });
 
@@ -64,7 +64,7 @@ app.post("/musica", upload.single("arquivo"), (req, res) => {
 
     fs.writeFileSync(tempFile, req.file.buffer);
 
-    const fpcalc = spawn("fpcalc", [tempFile]);
+    const fpcalc = spawn("./fpcalc", [tempFile]);
 
     let output = "";
     let error = "";
@@ -133,3 +133,4 @@ app.listen(3000, () => {
     console.log('Servidor HTTPS rodando em https://localhost:3000');
 
 });
+
