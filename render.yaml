@@ -6,4 +6,4 @@ services:
       apt-get update
       apt-get install -y chromaprint
       npm install
-    startCommand: npm start
+    startCommand: node server.js
